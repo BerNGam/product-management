@@ -3,17 +3,31 @@ const express = require('express');
 const cors = require('cors');
 const http = require('http');
 const socketIo = require('socket.io');
+const bodyParser=require('body-parser');
 const connectDB = require('./config/database');
 const productRoutes = require('./routes/productRoutes');
+const userRoutes= require('./routes/authRoutes');
 const Product = require('./models/Product');
 
 const app = express();
+
+
 app.use(cors());
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
     origin: "http://localhost:3000", 
     methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
   }
 });
@@ -28,7 +42,9 @@ console.log("test");
 // mongoose connection
 connectDB();
 // routes
+app.use(bodyParser.json());
 app.use('/products', productRoutes);
+app.use('/api/auth',userRoutes);
 
 // socket io
 io.on('connection', (socket) => {

@@ -35,8 +35,8 @@ const ProductList = ({ socket, onEdit }) => {
 
   const fetchProducts = async () => {
     try {
-      const response = await getAllProducts();
-      setProducts(response.data);
+      const data = await getAllProducts();
+      setProducts(data);
     } catch (error) {
       console.error('Error fetching products:', error);
     }
@@ -45,6 +45,7 @@ const ProductList = ({ socket, onEdit }) => {
   const handleDelete = async (id) => {
     try {
       await deleteProduct(id);
+      setProducts((prevProducts) => prevProducts.filter(product => product._id !== id));
     } catch (error) {
       console.error('Error deleting product:', error);
     }

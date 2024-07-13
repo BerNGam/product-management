@@ -1,72 +1,75 @@
 
-# Product Management API
+# API de Gestion de Produits
 
 ## Description
 
-A simple RESTful API built with Node.js and Express for managing products using MongoDB. This project enables users to create, read, update, and delete product data efficiently.
+Une API RESTful simple construite avec Node.js et Express pour gérer les produits en utilisant MongoDB. Ce projet permet aux utilisateurs de créer, lire, mettre à jour et supprimer des données de produits de manière efficace.
 
-## Features
+## Fonctionnalités
 
--   Full CRUD functionality for products
--   MongoDB connection for robust data storage
--   Basic authentication using JWT (JSON Web Tokens)
--   Real-time updates via WebSocket (Socket.io)
--   Frontend application developed with React and Material UI
+- Fonctionnalité CRUD complète pour les produits
+- Connexion MongoDB pour un stockage de données robuste
+- Authentification de base utilisant JWT (JSON Web Tokens)
+- Mises à jour en temps réel via WebSocket (Socket.io)
+- Application frontend développée avec React et Material UI
 
 ## Tech Stack
 
 -   **Backend:** Node.js, Express, MongoDB, Mongoose
--   **Frontend:** React, Material UI, Redux (not yet)
+-   **Frontend:** React, Material UI, Redux (non effectué)
 -   **WebSocket:** Socket.io
--   **Authentication:** JWT (not yet)
+-   **Authentication:** JWT 
 
 ## Getting Started
 
-### Prerequisites
+### Prérequis
 
--   Node.js (version 14.x or higher)
--   MongoDB (installed and running)
+-   Node.js (version 14.x ou supérieure)
+-   MongoDB (installé et en cours d'exécution)
 
 ### Installation
 
 1.  Clone the repository:
     
-    `git clone https://github.com/yourusername/product-management.git
+    `git clone https://github.com/BerNGam/product-management.git
     cd product-management` 
     
-2.  Install dependencies:
+2.  Installez les dépendances :
     
     `npm install` 
+
+    -> à appliquer dans chaque dossier , le frontEnd et le backEnd
     
-3.  Create a `.env` file in the root directory and add the following:
+3.  Créez un fichier `.env`  dans le répertoire racine et ajoutez les lignes suivantes :
     
 `MONGODB_URI=mongodb://127.0.0.1:27017/product_management
-    PORT=5000` 
-    
+ PORT=5000` 
+sans les guillemets , l'insérer comme présenter.
 
-### Running the Application (Backend)
+### Lancer l'Application (Backend)
 
-1.  Start the MongoDB service if it's not running:
+1.  Démarrez le service MongoDB s'il n'est pas en cours d'exécution :
     
     `net start MongoDB` 
     
-2.  Start the server:
+2.  Démarrez le serveur :
     
     `npm run dev` 
     
-3.  Open your browser and navigate to `http://localhost:5000`.
+3.  Ouvrez votre navigateur et naviguez vers `http://localhost:5000`. // vous verrez probablement un cannot GET / -> ce n'est pas un problème passé
+
     
 
 ### API Endpoints
 
--   **GET** `/api/products` - Retrieve all products
--   **POST** `/api/products` - Create a new product
--   **PUT** `/api/products/:id` - Update an existing product
--   **DELETE** `/api/products/:id` - Delete a product
+-   **GET** `/api/products` - Points de Terminaison de l'API
+-   **POST** `/api/products` - Créer un nouveau produit
+-   **PUT** `/api/products/:id` - Mettre à jour un produit existant
+-   **DELETE** `/api/products/:id` - Supprimer un produit
 
 ### Frontend
 
-To run the frontend application, navigate to the frontend directory (if applicable) and follow the same installation steps. Then start the React app:
+Pour exécuter l'application frontend, naviguez vers le répertoire frontend (le cas échéant) et suivez les mêmes étapes d'installation. Ensuite, démarrez l'application React :
 
 `npm start` 
 
